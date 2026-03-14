@@ -1,0 +1,4042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Predeclared in LINKED LISTS</title>
+    <link rel="shortcut icon"
+	  type="image/x-icon"
+	  href="/images/sourcepower.ico" />
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Predeclared in <a href=".">LINKED LISTS</a></h1>
+
+    <!-- changed by MH on 1/7/2019 from default template. See "MH" below -->
+<!-- changed by MH on 3/6/2021 from default template. See "MH" below -->
+
+
+
+
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Functions</h3>  <!-- changed by MH on 1/7/2019, was Methods -->
+
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="accumulate_linked_list"><span class="type-signature"></span>accumulate_linked_list<span class="signature">(<CODE>f</CODE>, <CODE>initial</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Applies binary function f to the elements of xs from right-to-left order.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>f</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given binary function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>initial</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">initial value for the accumulation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    result of applying f to the elements of xs from right-to-left order, starting with initial
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">value</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="append_linked_list"><span class="type-signature"></span>append_linked_list<span class="signature">(<CODE>xs</CODE>, <CODE>ys</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a linked list that results from appending the linked list ys to the linked list xs.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>ys</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list that results from appending ys to xs
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="build_linked_list"><span class="type-signature"></span>build_linked_list<span class="signature">(<CODE>fun</CODE>, <CODE>n</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Makes a linked list with n elements by applying the unary function fun to the numbers 0 to n - 1.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>fun</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given unary function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>n</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">number of elements in the linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list with n elements generated by applying fun to 0 to n - 1
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="draw_data"><span class="type-signature"></span>draw_data<span class="signature">(<CODE>value1,)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Visualizes the arguments in a separate drawing area in the Source
+Academy using box-and-pointer diagrams.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>value1,</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value2, ...values</CODE> - given values</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="enum_linked_list"><span class="type-signature"></span>enum_linked_list<span class="signature">(<CODE>start</CODE>, <CODE>end</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Makes a linked list with elements from start to end (inclusive).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>start</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">starting element of the linked list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>end</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">ending element of the linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list with elements from start to end (inclusive)
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="equal"><span class="type-signature"></span>equal<span class="signature">(<CODE>xs</CODE>, <CODE>ys</CODE>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns True if both have the same structure (pairs) and identical values at corresponding leaf positions.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>ys</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    whether xs and ys are equal
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="filter_linked_list"><span class="type-signature"></span>filter_linked_list<span class="signature">(<CODE>pred</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a linked list that contains only those elements for which the one-argument function pred returns True.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>pred</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given one-argument function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list that contains only those elements of xs for which pred returns True
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="for_each_linked_list"><span class="type-signature"></span>for_each_linked_list<span class="signature">(<CODE>fun</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Applies the unary function fun to every element of the linked list xs.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>fun</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given unary function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="head"><span class="type-signature"></span>head<span class="signature">(<CODE>p</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Returns head (first component) of given pair p.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>p</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#pair">pair</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given pair</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    head of p
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">value</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="is_linked_list"><span class="type-signature"></span>is_linked_list<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Returns True if xs is a linked list as defined in the textbook, and
+False otherwise.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    whether xs is a linked list
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="is_none"><span class="type-signature"></span>is_none<span class="signature">(<CODE>x</CODE>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Returns True if x is the empty linked list None, and False otherwise.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>x</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    whether x is None
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="is_pair"><span class="type-signature"></span>is_pair<span class="signature">(<CODE>x</CODE>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Returns True if x is a pair and False otherwise.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>x</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    whether x is a pair
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="length_linked_list"><span class="type-signature"></span>length_linked_list<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {int}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns the length of the linked list xs.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    length of xs
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">int</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="linked_list"><span class="type-signature"></span>linked_list<span class="signature">(<CODE>value1,)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Given n values, returns a linked list of length n. The elements of
+the linked list are the given values in the given order.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>value1,</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value2, ...values</CODE> - given values</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list containing all values
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="linked_list_to_string"><span class="type-signature"></span>linked_list_to_string<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a string that represents linked list xs using the text-based box-and-pointer notation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    string that represents xs using box-and-pointer notation
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="map_linked_list"><span class="type-signature"></span>map_linked_list<span class="signature">(<CODE>f</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a linked list that results from linked list xs by element-wise application of unary function f.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>f</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given unary function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list that results from element-wise application of f to xs
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="member_linked_list"><span class="type-signature"></span>member_linked_list<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns first postfix sub-linked list whose head is identical to v (using ==). Returns None if the element does not occur in the linked list.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>v</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    first postfix sub-linked list of xs whose head is identical to v, or None if no such sub-linked list exists
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="pair"><span class="type-signature"></span>pair<span class="signature">(<CODE>x</CODE>, <CODE>y</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#pair">pair</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Makes a pair whose head (first component) is x and whose tail (second component) is y.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>x</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given head</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>y</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given tail</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    pair with x as head and y as tail
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#pair">pair</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="ref_linked_list"><span class="type-signature"></span>ref_linked_list<span class="signature">(<CODE>xs</CODE>, <CODE>n</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns the element of linked list xs at position n (0-indexed).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>n</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">index of the element to return</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    element of xs at position n
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">value</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="remove_all_linked_list"><span class="type-signature"></span>remove_all_linked_list<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a linked list that results from xs by removing all items from xs that are identical (==) to v.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>v</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list that results from removing all items from xs that are identical to v
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="remove_linked_list"><span class="type-signature"></span>remove_linked_list<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a linked list that results from xs by removing the first item from xs that is identical (==) to v.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>v</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list that results from removing the first item from xs that is identical to v
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="reverse_linked_list"><span class="type-signature"></span>reverse_linked_list<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {<a href="global.html#linked_list">linked_list</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns linked list xs in reverse order.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list xs in reverse order
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#linked_list">linked_list</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="tail"><span class="type-signature"></span>tail<span class="signature">(<CODE>p</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    PRIMITIVE
+Returns tail (second component) of given pair p.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>p</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#pair">pair</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given pair</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tail of p
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">value</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h3>Predeclared names</h3><ul><li><a href="global.html#accumulate_linked_list">accumulate_linked_list</a></li><li><a href="global.html#append_linked_list">append_linked_list</a></li><li><a href="global.html#build_linked_list">build_linked_list</a></li><li><a href="global.html#draw_data">draw_data</a></li><li><a href="global.html#enum_linked_list">enum_linked_list</a></li><li><a href="global.html#equal">equal</a></li><li><a href="global.html#filter_linked_list">filter_linked_list</a></li><li><a href="global.html#for_each_linked_list">for_each_linked_list</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#is_linked_list">is_linked_list</a></li><li><a href="global.html#is_none">is_none</a></li><li><a href="global.html#is_pair">is_pair</a></li><li><a href="global.html#length_linked_list">length_linked_list</a></li><li><a href="global.html#linked_list">linked_list</a></li><li><a href="global.html#linked_list_to_string">linked_list_to_string</a></li><li><a href="global.html#map_linked_list">map_linked_list</a></li><li><a href="global.html#member_linked_list">member_linked_list</a></li><li><a href="global.html#pair">pair</a></li><li><a href="global.html#ref_linked_list">ref_linked_list</a></li><li><a href="global.html#remove_all_linked_list">remove_all_linked_list</a></li><li><a href="global.html#remove_linked_list">remove_linked_list</a></li><li><a href="global.html#reverse_linked_list">reverse_linked_list</a></li><li><a href="global.html#tail">tail</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+  generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> from
+  <a href="https://github.com/source-academy/py-slang">Github repository py-slang</a>
+  on Sat Mar 14 2026 21:49:09 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
