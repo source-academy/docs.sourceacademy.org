@@ -116,210 +116,7 @@
     
 
     
-    <h4 class="name" id="accumulate_linked_list"><span class="type-signature"></span>accumulate_linked_list<span class="signature">(<CODE>f</CODE>, <CODE>initial</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Applies binary function f to the elements of xs from right-to-left order.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code><CODE>f</CODE></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">given binary function</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code><CODE>initial</CODE></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">value</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">initial value for the accumulation</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code><CODE>xs</CODE></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">linked_list</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">given linked list</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    result of applying f to the elements of xs from right-to-left order, starting with initial
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">value</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-            </div>
-        
-            <div class="function-entry">
-                
-
-    
-
-    
-    <h4 class="name" id="append_linked_list"><span class="type-signature"></span>append_linked_list<span class="signature">(<CODE>xs</CODE>, <CODE>ys</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="append"><span class="type-signature"></span>append<span class="signature">(<CODE>xs</CODE>, <CODE>ys</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -499,7 +296,7 @@
     
 
     
-    <h4 class="name" id="build_linked_list"><span class="type-signature"></span>build_linked_list<span class="signature">(<CODE>fun</CODE>, <CODE>n</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="build_llist"><span class="type-signature"></span>build_llist<span class="signature">(<CODE>fun</CODE>, <CODE>n</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -816,7 +613,7 @@ Academy using box-and-pointer diagrams.
     
 
     
-    <h4 class="name" id="enum_linked_list"><span class="type-signature"></span>enum_linked_list<span class="signature">(<CODE>start</CODE>, <CODE>end</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="enum_llist"><span class="type-signature"></span>enum_llist<span class="signature">(<CODE>start</CODE>, <CODE>end</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -1176,7 +973,7 @@ Academy using box-and-pointer diagrams.
     
 
     
-    <h4 class="name" id="filter_linked_list"><span class="type-signature"></span>filter_linked_list<span class="signature">(<CODE>pred</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="filter"><span class="type-signature"></span>filter<span class="signature">(<CODE>pred</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -1356,7 +1153,7 @@ Academy using box-and-pointer diagrams.
     
 
     
-    <h4 class="name" id="for_each_linked_list"><span class="type-signature"></span>for_each_linked_list<span class="signature">(<CODE>fun</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="for_each"><span class="type-signature"></span>for_each<span class="signature">(<CODE>fun</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1672,7 +1469,7 @@ Returns head (first component) of given pair p.
     
 
     
-    <h4 class="name" id="is_linked_list"><span class="type-signature"></span>is_linked_list<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="is_llist"><span class="type-signature"></span>is_llist<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
     
 
     
@@ -2147,7 +1944,7 @@ Returns True if x is a pair and False otherwise.
     
 
     
-    <h4 class="name" id="length_linked_list"><span class="type-signature"></span>length_linked_list<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {int}</span></h4>
+    <h4 class="name" id="length"><span class="type-signature"></span>length<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {int}</span></h4>
     
 
     
@@ -2285,163 +2082,6 @@ Returns True if x is a pair and False otherwise.
     <dd>
         
 <span class="param-type">int</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-            </div>
-        
-            <div class="function-entry">
-                
-
-    
-
-    
-    <h4 class="name" id="linked_list_to_string"><span class="type-signature"></span>linked_list_to_string<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Returns a string that represents linked list xs using the text-based box-and-pointer notation.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code><CODE>xs</CODE></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">linked_list</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">given linked list</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    string that represents xs using box-and-pointer notation
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
 
 
     </dd>
@@ -2620,7 +2260,344 @@ the linked list are the given values in the given order.
     
 
     
-    <h4 class="name" id="map_linked_list"><span class="type-signature"></span>map_linked_list<span class="signature">(<CODE>f</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="llist_ref"><span class="type-signature"></span>llist_ref<span class="signature">(<CODE>xs</CODE>, <CODE>n</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns the element of linked list xs at position n (0-indexed).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">linked_list</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>n</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">index of the element to return</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    element of xs at position n
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">value</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="llist_to_string"><span class="type-signature"></span>llist_to_string<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a string that represents linked list xs using the text-based box-and-pointer notation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">linked_list</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    string that represents xs using box-and-pointer notation
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="map"><span class="type-signature"></span>map<span class="signature">(<CODE>f</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -2800,7 +2777,7 @@ the linked list are the given values in the given order.
     
 
     
-    <h4 class="name" id="member_linked_list"><span class="type-signature"></span>member_linked_list<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="member"><span class="type-signature"></span>member<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -3161,7 +3138,7 @@ Makes a pair whose head (first component) is x and whose tail (second component)
     
 
     
-    <h4 class="name" id="ref_linked_list"><span class="type-signature"></span>ref_linked_list<span class="signature">(<CODE>xs</CODE>, <CODE>n</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
+    <h4 class="name" id="reduce"><span class="type-signature"></span>reduce<span class="signature">(<CODE>f</CODE>, <CODE>initial</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {value}</span></h4>
     
 
     
@@ -3169,7 +3146,7 @@ Makes a pair whose head (first component) is x and whose tail (second component)
 
 
 <div class="description">
-    Returns the element of linked list xs at position n (0-indexed).
+    Applies binary function f to the elements of xs from right-to-left order.
 </div>
 
 
@@ -3205,13 +3182,13 @@ Makes a pair whose head (first component) is x and whose tail (second component)
 
         <tr>
             
-                <td class="name"><code><CODE>xs</CODE></code></td>
+                <td class="name"><code><CODE>f</CODE></code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">linked_list</span>
+<span class="param-type">function</span>
 
 
             
@@ -3221,171 +3198,14 @@ Makes a pair whose head (first component) is x and whose tail (second component)
 
             
 
-            <td class="description last">given linked list</td>
+            <td class="description last">given binary function</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code><CODE>n</CODE></code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">index of the element to return</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    element of xs at position n
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">value</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-            </div>
-        
-            <div class="function-entry">
-                
-
-    
-
-    
-    <h4 class="name" id="remove_all_linked_list"><span class="type-signature"></span>remove_all_linked_list<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Returns a linked list that results from xs by removing all items from xs that are identical (==) to v.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code><CODE>v</CODE></code></td>
+                <td class="name"><code><CODE>initial</CODE></code></td>
             
 
             <td class="type">
@@ -3401,7 +3221,7 @@ Makes a pair whose head (first component) is x and whose tail (second component)
 
             
 
-            <td class="description last">given value</td>
+            <td class="description last">initial value for the accumulation</td>
         </tr>
 
     
@@ -3490,7 +3310,7 @@ Makes a pair whose head (first component) is x and whose tail (second component)
 
         
 <div class="param-desc">
-    linked list that results from removing all items from xs that are identical to v
+    result of applying f to the elements of xs from right-to-left order, starting with initial
 </div>
 
 
@@ -3501,7 +3321,7 @@ Makes a pair whose head (first component) is x and whose tail (second component)
     </dt>
     <dd>
         
-<span class="param-type">linked_list</span>
+<span class="param-type">value</span>
 
 
     </dd>
@@ -3521,7 +3341,7 @@ Makes a pair whose head (first component) is x and whose tail (second component)
     
 
     
-    <h4 class="name" id="remove_linked_list"><span class="type-signature"></span>remove_linked_list<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -3701,7 +3521,187 @@ Makes a pair whose head (first component) is x and whose tail (second component)
     
 
     
-    <h4 class="name" id="reverse_linked_list"><span class="type-signature"></span>reverse_linked_list<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    <h4 class="name" id="remove_all"><span class="type-signature"></span>remove_all<span class="signature">(<CODE>v</CODE>, <CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns a linked list that results from xs by removing all items from xs that are identical (==) to v.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>v</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">value</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code><CODE>xs</CODE></code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">linked_list</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">given linked list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list that results from removing all items from xs that are identical to v
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">linked_list</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="reverse"><span class="type-signature"></span>reverse<span class="signature">(<CODE>xs</CODE>)</span><span class="type-signature"> &rarr; {linked_list}</span></h4>
     
 
     
@@ -4025,7 +4025,7 @@ Returns tail (second component) of given pair p.
 </div>
 
 <nav>
-    <h3>Predeclared names</h3><ul><li><a href="global.html#accumulate_linked_list">accumulate_linked_list</a></li><li><a href="global.html#append_linked_list">append_linked_list</a></li><li><a href="global.html#build_linked_list">build_linked_list</a></li><li><a href="global.html#draw_data">draw_data</a></li><li><a href="global.html#enum_linked_list">enum_linked_list</a></li><li><a href="global.html#equal">equal</a></li><li><a href="global.html#filter_linked_list">filter_linked_list</a></li><li><a href="global.html#for_each_linked_list">for_each_linked_list</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#is_linked_list">is_linked_list</a></li><li><a href="global.html#is_none">is_none</a></li><li><a href="global.html#is_pair">is_pair</a></li><li><a href="global.html#length_linked_list">length_linked_list</a></li><li><a href="global.html#linked_list_to_string">linked_list_to_string</a></li><li><a href="global.html#llist">llist</a></li><li><a href="global.html#map_linked_list">map_linked_list</a></li><li><a href="global.html#member_linked_list">member_linked_list</a></li><li><a href="global.html#pair">pair</a></li><li><a href="global.html#ref_linked_list">ref_linked_list</a></li><li><a href="global.html#remove_all_linked_list">remove_all_linked_list</a></li><li><a href="global.html#remove_linked_list">remove_linked_list</a></li><li><a href="global.html#reverse_linked_list">reverse_linked_list</a></li><li><a href="global.html#tail">tail</a></li></ul>
+    <h3>Predeclared names</h3><ul><li><a href="global.html#append">append</a></li><li><a href="global.html#build_llist">build_llist</a></li><li><a href="global.html#draw_data">draw_data</a></li><li><a href="global.html#enum_llist">enum_llist</a></li><li><a href="global.html#equal">equal</a></li><li><a href="global.html#filter">filter</a></li><li><a href="global.html#for_each">for_each</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#is_llist">is_llist</a></li><li><a href="global.html#is_none">is_none</a></li><li><a href="global.html#is_pair">is_pair</a></li><li><a href="global.html#length">length</a></li><li><a href="global.html#llist">llist</a></li><li><a href="global.html#llist_ref">llist_ref</a></li><li><a href="global.html#llist_to_string">llist_to_string</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#member">member</a></li><li><a href="global.html#pair">pair</a></li><li><a href="global.html#reduce">reduce</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#remove_all">remove_all</a></li><li><a href="global.html#reverse">reverse</a></li><li><a href="global.html#tail">tail</a></li></ul>
 </nav>
 
 <br class="clear">
@@ -4033,7 +4033,7 @@ Returns tail (second component) of given pair p.
 <footer>
   generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> from
   <a href="https://github.com/source-academy/py-slang">Github repository py-slang</a>
-  on Sun Jul 05 2026 13:23:25 GMT+0000 (Coordinated Universal Time)
+  on Sun Jul 05 2026 13:45:46 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
