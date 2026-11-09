@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Python §4 Typed</title>
+    <link rel="shortcut icon"
+	  type="image/x-icon"
+	  href="/images/sourcepower.ico" />
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Python §4 Typed</h1>
+
+    <!-- changed by MH on 1/7/2019 from default template. See "MH" below -->
+<!-- changed by MH on 3/6/2021 from default template. See "MH" below -->
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p>Python §4 Typed is Python §4 with type annotations. Your program is checked for type errors
+before it runs, using <a href="https://github.com/microsoft/pyright">Pyright</a>. A program with a
+type error does not run: you see all its type errors, each with the line and column where it
+occurs. Like <a href="../python_4/">Python §4</a>, it is designed for the fourth chapter of the textbook
+<a href="https://sourceacademy.org/sicpy">Structure and Interpretation
+of Computer Programs, Python Adaptation</a> (SICPy).</p>
+<h2>What names are predeclared in Python §4 Typed?</h2>
+<p>On the right, you see all predeclared names of Python §4, in alphabetical order. Click on a
+name to see how it is defined and used. They come in these groups:</p>
+  <ul>
+    <li>
+      <a href="../MISC/index.html">MISC</a>: Miscellaneous constants and functions
+    </li>
+    <li>
+      <a href="../MATH/index.html">MATH</a>: Mathematical constants and functions
+    </li>
+    <li>
+      <a href="../LINKED LIST/index.html">LINKED LIST</a>: Support for linked lists
+    </li>
+    <li>
+      <a href="../PAIR MUTATOR/index.html">PAIR MUTATOR</a>: Mutating pairs
+    </li>
+    <li>
+      <a href="../LIST/index.html">LIST</a>: Support for lists
+    </li>
+    <li>
+      <a href="../STREAM/index.html">STREAM</a>: Support for streams
+    </li>
+    <li>
+      <a href="../MCE/index.html">MCE</a>: Support for the meta-circular evaluator
+    </li>
+  </ul>
+<p>The <a href="#types-of-the-predeclared-names">types of the predeclared names</a> are listed below, except
+for <code>print</code>, <code>len</code>, <code>abs</code>, <code>max</code>, <code>min</code>, <code>round</code>, <code>input</code>, <code>repr</code>, <code>str</code> and <code>complex</code>, which have the types
+that <a href="https://docs.python.org/3/library/functions.html">Python's standard library</a> gives them
+(<code>bool</code> is not a number, as above). The types of <code>tokenize</code>, <code>parse</code> and <code>apply_in_underlying_python</code> are
+not fixed yet.</p>
+<h2>What can you do in Python §4 Typed?</h2>
+<p>You can use everything in <a href="../python_4/">Python §4</a>, and you annotate your program with
+types. A program without its annotations is a Python §4 program, and it behaves in the same way.</p>
+<h2>Types</h2>
+<p>The following types are available without imports.</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code>, <code>float</code>, <code>complex</code></td>
+<td>numbers</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td><code>True</code>, <code>False</code></td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>strings</td>
+</tr>
+<tr>
+<td><code>None</code></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>list[T]</code></td>
+<td>lists whose elements have type <code>T</code></td>
+</tr>
+<tr>
+<td><code>Pair[H, T]</code></td>
+<td>pairs whose head has type <code>H</code> and whose tail has type <code>T</code></td>
+</tr>
+<tr>
+<td><code>LList[T]</code></td>
+<td>linked lists of elements of type <code>T</code>: <code>Pair[T, LList[T]] | None</code></td>
+</tr>
+<tr>
+<td><code>Stream[T]</code></td>
+<td>streams of elements of type <code>T</code>: <code>Pair[T, Callable[[], Stream[T]]] | None</code></td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td>any value: a function that has <code>object</code> as the type of a parameter, such as <code>is_none</code>, accepts every value. Unlike <code>Any</code>, which there is not, a program can do nothing with an <code>object</code> but pass it on or test it (<code>is_none(x)</code>, <code>is_pair(x)</code>, ...)</td>
+</tr>
+<tr>
+<td><code>Callable[[T1, ..., Tn], R]</code></td>
+<td>functions with <code>n</code> parameters of types <code>T1</code>, ..., <code>Tn</code> that return a value of type <code>R</code></td>
+</tr>
+<tr>
+<td><code>T1 | T2</code></td>
+<td>values of type <code>T1</code> or of type <code>T2</code></td>
+</tr>
+</tbody>
+</table>
+<p>An <code>int</code> can be used where a <code>float</code> is expected, but <code>bool</code> is not a number: <code>True</code> cannot be used where
+an <code>int</code> is expected, as in Python §4, where <code>True + 1</code> is an error. A pair is not a list as far as types
+are concerned: <code>pair(1, 2)[0]</code> is a type error, and you access the head and tail of a pair with <code>head</code> and
+<code>tail</code>. There is no type that stands for every type (no <code>Any</code>), and types need no import: a program that
+imports from <code>typing</code> is rejected.</p>
+<h2>Annotating your program</h2>
+<p>Every function definition annotates each of its parameters and its return type; a function that does not
+return a value has the return type <code>None</code>:</p>
+<pre class="prettyprint source lang-python"><code>def length(xs: LList[int]) -> int:
+    return 0 if is_none(xs) else 1 + length(tail(xs))
+</code></pre>
+<p>The parameters of a lambda expression are not annotated: their types come from where the lambda is used,
+for example as an argument of a function whose parameter has a function type
+(<code>map(lambda x: x * 2, llist(1, 2, 3))</code>), or as the value of a name with a declared function type
+(<code>square: Callable[[int], int] = lambda x: x * x</code>). An assignment can declare the type of a name,
+as in <code>count: int = 0</code>; an empty list needs a declared type, as in <code>xs: list[int] = []</code>.</p>
+<p>In the branches of an <code>if</code>, the type of a name is narrowed by the condition: if <code>xs</code> is a <code>LList[int]</code>,
+it is <code>None</code> where <code>is_none(xs)</code> is true, and a pair where it is false, so that <code>head(xs)</code> is allowed there.</p>
+<h2>Generic functions and type aliases</h2>
+<p>A function that works for values of any type has type parameters, which stand for any type; at each call
+they are replaced by the types of the arguments. A <code>type</code> statement gives a name to a type.</p>
+<pre class="prettyprint source lang-python"><code>def map_llist[A, B](f: Callable[[A], B], xs: LList[A]) -> LList[B]:
+    return None if is_none(xs) else pair(f(head(xs)), map_llist(f, tail(xs)))
+
+type Rational = Pair[int, int]
+</code></pre>
+<h2>What do type errors look like?</h2>
+<pre class="prettyprint source lang-python"><code>def square(x: int) -> int:
+    return x * x
+
+square(&quot;five&quot;)           # square expects x to be int, but got str
+head(pair(1, 2)[0])      # A pair cannot be indexed (Pair[int, int]): use head(...) and tail(...)
+if 1: pass               # A condition must be a bool, but this is an int
+head(llist(1, 2))        # head expects p to be Pair[H, Any], but got LList[int]. The value can be None:
+                         # test for that first, for example with is_none(...)
+</code></pre>
+<h2>Can you use the Source Academy modules?</h2>
+<p>Yes, for these modules, whose types are known: <code>binary_tree</code>, <code>curve</code>, <code>matrix</code>, <code>repeat</code>, <code>rune</code>,
+<code>scrabble</code> and <code>sound</code>. Their functions are checked like your own: a call that gives a function an argument
+of the wrong type is a type error. The types that a module defines (<code>Rune</code> of <code>rune</code>, <code>Sound</code> of <code>sound</code>)
+are imported like its functions, to annotate with them:</p>
+<pre class="prettyprint source lang-python"><code>from rune import heart, scale, show, Rune
+
+def smaller(r: Rune) -> Rune:
+    return scale(0.5, r)
+
+show(smaller(heart))
+</code></pre>
+<p>A type is only for annotations: you cannot use <code>Rune</code> as a value. A module whose types are not known cannot
+be imported yet.</p>
+<p>A number that you give to a function of a module can be an <code>int</code> or a <code>float</code>; a number that a module gives
+back is a <code>float</code>. A function of a module that works for any type (<code>repeat</code>, and the functions of
+<code>binary_tree</code>) gives back the type that it was given, but an <code>int</code> that passes through it comes back as a
+<code>float</code>: a program that uses it where an <code>int</code> is required, as the index of a list, passes the check and
+fails when it runs.</p>
+<h2>Types of the modules</h2>
+<p>The types that each module defines, and the names that it has, with their types. <code>int | float</code> for a
+number that you give to a module, and <code>float</code> for a number that it gives back, as described above.</p>
+<h3>binary_tree</h3>
+<p>Types:</p>
+<ul>
+<li><code>BinaryTree[A]</code>: a binary tree whose entries have type A, made with make_tree and make_empty_tree</li>
+</ul>
+<pre><code>def make_empty_tree[A]() -&gt; BinaryTree[A]
+def make_tree[A](value: A, left: BinaryTree[A], right: BinaryTree[A], /) -&gt; BinaryTree[A]
+def is_tree(value: object, /) -&gt; bool
+def is_empty_tree(value: object, /) -&gt; bool
+def entry[A](t: BinaryTree[A], /) -&gt; A
+def left_branch[A](t: BinaryTree[A], /) -&gt; BinaryTree[A]
+def right_branch[A](t: BinaryTree[A], /) -&gt; BinaryTree[A]</code></pre>
+<h3>curve</h3>
+<p>A curve is a function from a number between 0 and 1 to a Point: Callable[[float], Point]. A transformation of curves is a function from a curve to a curve. The 2D drawers (draw_connected, ...) and the 3D drawers (draw_3D_connected, ...) are different types: animate_curve takes a 2D drawer and animate_3D_curve a 3D drawer.</p>
+<p>Types:</p>
+<ul>
+<li><code>Point</code>: a point of a curve, with an x and a y, and a z and a colour in 3D</li>
+<li><code>CurveDrawn</code>: a curve that was drawn with a 2D drawer</li>
+<li><code>Curve3DDrawn</code>: a curve that was drawn with a 3D drawer</li>
+<li><code>CurveAnimation</code>: an animation of curves</li>
+</ul>
+<pre><code>def make_point(x: int | float, y: int | float, /) -&gt; Point
+def make_3D_point(x: int | float, y: int | float, z: int | float, /) -&gt; Point
+def make_color_point(x: int | float, y: int | float, r: int | float, g: int | float, b: int | float, /) -&gt; Point
+def make_3D_color_point(x: int | float, y: int | float, z: int | float, r: int | float, g: int | float, b: int | float, /) -&gt; Point
+def x_of(pt: Point, /) -&gt; float
+def y_of(pt: Point, /) -&gt; float
+def z_of(pt: Point, /) -&gt; float
+def r_of(pt: Point, /) -&gt; float
+def g_of(pt: Point, /) -&gt; float
+def b_of(pt: Point, /) -&gt; float
+def unit_circle(t: int | float, /) -&gt; Point
+def unit_line(t: int | float, /) -&gt; Point
+def arc(t: int | float, /) -&gt; Point
+def unit_line_at(y: int | float, /) -&gt; Callable[[int | float], Point]
+def connect_ends(curve1: Callable[[float], Point], curve2: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
+def connect_rigidly(curve1: Callable[[float], Point], curve2: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
+def invert(original: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
+def put_in_standard_position(curve: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
+def translate(x0: int | float, y0: int | float, z0: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def rainbow(repeats: int | float, phase: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def rotate_around_origin(a: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def rotate_around_origin_3D(a: int | float, b: int | float, c: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def scale(x: int | float, y: int | float, z: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def scale_proportional(s: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def draw_connected(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_connected_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_connected_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_points(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_points_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_points_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_3D_connected(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_connected_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_connected_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_points(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_points_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_points_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def animate_curve(duration: int | float, fps: int | float, drawer: Callable[[Callable[[int | float], Point]], CurveDrawn], func: Callable[[float], Callable[[float], Point]], /) -&gt; CurveAnimation
+def animate_3D_curve(duration: int | float, fps: int | float, drawer: Callable[[Callable[[int | float], Point]], Curve3DDrawn], func: Callable[[float], Callable[[float], Point]], /) -&gt; CurveAnimation</code></pre>
+<h3>matrix</h3>
+<p>get_matrix gives the rows of the tone matrix as a linked list, the bottom row first; each row is a linked list of booleans.</p>
+<pre><code>def get_matrix() -&gt; LList[LList[bool]]
+def clear_matrix() -&gt; None</code></pre>
+<h3>repeat</h3>
+<p>The function that is repeated has the same type for its parameter and its result. The count n must be a whole number.</p>
+<pre><code>def repeat[A](func: Callable[[A], A], n: int, /) -&gt; Callable[[A], A]
+def repeat_apply[A](func: Callable[[A], A], n: int, x: A, /) -&gt; A
+def twice[A](func: Callable[[A], A], /) -&gt; Callable[[A], A]
+def thrice[A](func: Callable[[A], A], /) -&gt; Callable[[A], A]</code></pre>
+<h3>rune</h3>
+<p>Types:</p>
+<ul>
+<li><code>Rune</code>: a picture that you can combine and transform</li>
+<li><code>AnimatedRune</code>: an animation of runes, which animate_rune and animate_anaglyph give (no function of rune takes one)</li>
+</ul>
+<pre><code>def anaglyph(rune: Rune, /) -&gt; Rune
+def animate_anaglyph(duration: int | float, fps: int | float, func: Callable[[float], Rune], /) -&gt; AnimatedRune
+def animate_rune(duration: int | float, fps: int | float, func: Callable[[float], Rune], /) -&gt; AnimatedRune
+def beside(rune1: Rune, rune2: Rune, /) -&gt; Rune
+def beside_frac(frac: int | float, rune1: Rune, rune2: Rune, /) -&gt; Rune
+def black(rune: Rune, /) -&gt; Rune
+def blue(rune: Rune, /) -&gt; Rune
+def brown(rune: Rune, /) -&gt; Rune
+def color(rune: Rune, r: int | float, g: int | float, b: int | float, /) -&gt; Rune
+def colour_with_hue(rune: Rune, hue: int | float, /) -&gt; Rune
+def flip_horiz(rune: Rune, /) -&gt; Rune
+def flip_vert(rune: Rune, /) -&gt; Rune
+def from_url(imageUrl: str, /) -&gt; Rune
+def green(rune: Rune, /) -&gt; Rune
+def hollusion(rune: Rune, /) -&gt; Rune
+def hollusion_magnitude(rune: Rune, magnitude: int | float, /) -&gt; Rune
+def indigo(rune: Rune, /) -&gt; Rune
+def make_cross(rune: Rune, /) -&gt; Rune
+def orange(rune: Rune, /) -&gt; Rune
+def overlay(rune1: Rune, rune2: Rune, /) -&gt; Rune
+def overlay_frac(frac: int | float, rune1: Rune, rune2: Rune, /) -&gt; Rune
+def pink(rune: Rune, /) -&gt; Rune
+def purple(rune: Rune, /) -&gt; Rune
+def quarter_turn_left(rune: Rune, /) -&gt; Rune
+def quarter_turn_right(rune: Rune, /) -&gt; Rune
+def random_color(rune: Rune, /) -&gt; Rune
+def red(rune: Rune, /) -&gt; Rune
+def rotate(rad: int | float, rune: Rune, /) -&gt; Rune
+def scale(ratio: int | float, rune: Rune, /) -&gt; Rune
+def scale_independent(ratio_x: int | float, ratio_y: int | float, rune: Rune, /) -&gt; Rune
+def show(rune: Rune, /) -&gt; Rune
+def stack(rune1: Rune, rune2: Rune, /) -&gt; Rune
+def stack_frac(frac: int | float, rune1: Rune, rune2: Rune, /) -&gt; Rune
+def stackn(n: int, rune: Rune, /) -&gt; Rune
+def translate(x: int | float, y: int | float, rune: Rune, /) -&gt; Rune
+def turn_upside_down(rune: Rune, /) -&gt; Rune
+def white(rune: Rune, /) -&gt; Rune
+def yellow(rune: Rune, /) -&gt; Rune
+blank: Rune
+circle: Rune
+corner: Rune
+heart: Rune
+nova: Rune
+pentagram: Rune
+rcross: Rune
+ribbon: Rune
+sail: Rune
+square: Rune
+triangle: Rune</code></pre>
+<h3>scrabble</h3>
+<p>scrabble_words is an array of the words; scrabble_letters has, for each word, the array of its letters. The tiny versions have far fewer words.</p>
+<pre><code>scrabble_words: list[str]
+scrabble_letters: list[list[str]]
+scrabble_words_tiny: list[str]
+scrabble_letters_tiny: list[list[str]]</code></pre>
+<h3>sound</h3>
+<p>A wave is a function from a time in seconds to an amplitude between -1 and 1: Callable[[float], float]. A transformation of sounds is a function from a sound to a sound. record gives a function that stops the recording and gives a function that gives the sound; record_for gives a function that gives the sound.</p>
+<p>Types:</p>
+<ul>
+<li><code>Sound</code>: a sound, which you can play and combine; make_sound makes one from a wave and a duration, and get_wave and get_duration take it apart</li>
+</ul>
+<pre><code>def make_sound(wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
+def make_stereo_sound(left_wave: Callable[[float], int | float], right_wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
+def get_wave(sound: Sound, /) -&gt; Callable[[int | float], float]
+def get_left_wave(sound: Sound, /) -&gt; Callable[[int | float], float]
+def get_right_wave(sound: Sound, /) -&gt; Callable[[int | float], float]
+def get_duration(sound: Sound, /) -&gt; float
+def is_sound(x: object, /) -&gt; bool
+def init_record() -&gt; str
+def record(buffer: int | float, /) -&gt; Callable[[], Callable[[], Sound]]
+def record_for(duration: int | float, buffer: int | float, /) -&gt; Callable[[], Sound]
+def play_wave(wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
+def play_waves(left_wave: Callable[[float], int | float], right_wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
+def play(sound: Sound, /) -&gt; Sound
+def play_in_tab(sound: Sound, /) -&gt; Sound
+def stop() -&gt; None
+def noise_wave() -&gt; Callable[[int | float], float]
+def silence_wave() -&gt; Callable[[int | float], float]
+def sine_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
+def square_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
+def triangle_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
+def sawtooth_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
+def noise_sound(duration: int | float, /) -&gt; Sound
+def silence_sound(duration: int | float, /) -&gt; Sound
+def sine_sound(freq: int | float, duration: int | float, /) -&gt; Sound
+def square_sound(freq: int | float, duration: int | float, /) -&gt; Sound
+def triangle_sound(freq: int | float, duration: int | float, /) -&gt; Sound
+def sawtooth_sound(freq: int | float, duration: int | float, /) -&gt; Sound
+def consecutively(sounds: LList[Sound], /) -&gt; Sound
+def simultaneously(sounds: LList[Sound], /) -&gt; Sound
+def adsr(attack_ratio: int | float, decay_ratio: int | float, sustain_level: int | float, release_ratio: int | float, /) -&gt; Callable[[Sound], Sound]
+def stacking_adsr(waveform: Callable[[float, float], Sound], base_frequency: int | float, duration: int | float, envelopes: LList[Callable[[Sound], Sound]], /) -&gt; Sound
+def phase_mod(freq: int | float, duration: int | float, amount: int | float, /) -&gt; Callable[[Sound], Sound]
+def squash(sound: Sound, /) -&gt; Sound
+def pan(amount: int | float, /) -&gt; Callable[[Sound], Sound]
+def pan_mod(modulator: Sound, /) -&gt; Callable[[Sound], Sound]
+def bell(note: int | float, duration: int | float, /) -&gt; Sound
+def cello(note: int | float, duration: int | float, /) -&gt; Sound
+def piano(note: int | float, duration: int | float, /) -&gt; Sound
+def trombone(note: int | float, duration: int | float, /) -&gt; Sound
+def violin(note: int | float, duration: int | float, /) -&gt; Sound</code></pre>
+<h2>Types of the predeclared names</h2>
+<p><code>Any</code> in a declaration means that any type is accepted there (you cannot write <code>Any</code> in a program),
+<code>TypeIs[T]</code> means <code>bool</code>, and in addition narrows the type of the argument to <code>T</code>, <code>NoReturn</code> is the result
+of a function that never returns (<code>error</code>; you cannot write it in a program either), and the <code>/</code> means
+that the arguments are passed by position.</p>
+<h3>misc</h3>
+<pre><code>def error(*object: Any) -&gt; NoReturn
+def breakpoint() -&gt; None
+def time_time() -&gt; float
+def random_random() -&gt; float
+def arity(f: Callable[..., Any], /) -&gt; int
+def real(x: complex, /) -&gt; float
+def imag(x: complex, /) -&gt; float
+def set_timeout(f: Callable[[], object], t: int | float, /) -&gt; None
+def clear_all_timeout() -&gt; None
+def is_none(x: object, /) -&gt; TypeIs[None]
+def is_boolean(x: object, /) -&gt; TypeIs[bool]
+def is_integer(x: object, /) -&gt; TypeIs[int]
+def is_float(x: object, /) -&gt; TypeIs[float]
+def is_complex(x: object, /) -&gt; TypeIs[complex]
+def is_number(x: object, /) -&gt; TypeIs[int | float | complex]
+def is_string(x: object, /) -&gt; TypeIs[str]
+def is_function(x: object, /) -&gt; TypeIs[Callable[..., Any]]
+def is_list(x: object, /) -&gt; TypeIs[list[Any]]</code></pre>
+<h3>pairs and linked lists</h3>
+<pre><code>def pair[H, T](h: H, t: T, /) -&gt; Pair[H, T]
+def head[H](p: Pair[H, Any], /) -&gt; H
+def tail[T](p: Pair[Any, T], /) -&gt; T
+def is_pair(x: object, /) -&gt; TypeIs[Pair[Any, Any]]
+def llist[A](*xs: A) -&gt; LList[A]
+def is_llist(x: object, /) -&gt; bool
+def print_llist(xs: LList[Any], /) -&gt; None
+def llist_to_string(xs: LList[Any], /) -&gt; str
+def length(xs: LList[Any], /) -&gt; int
+def map[A, B](f: Callable[[A], B], xs: LList[A], /) -&gt; LList[B]
+def filter[A](pred: Callable[[A], bool], xs: LList[A], /) -&gt; LList[A]
+def reduce[A, B](f: Callable[[A, B], B], initial: B, xs: LList[A], /) -&gt; B
+def for_each[A](f: Callable[[A], object], xs: LList[A], /) -&gt; bool
+def build_llist[A](f: Callable[[int], A], n: int, /) -&gt; LList[A]
+def enum_llist(start: int, end: int, /) -&gt; LList[int]
+def reverse[A](xs: LList[A], /) -&gt; LList[A]
+def append[A](xs: LList[A], ys: LList[A], /) -&gt; LList[A]
+def member[A](v: A, xs: LList[A], /) -&gt; LList[A]
+def remove[A](v: A, xs: LList[A], /) -&gt; LList[A]
+def remove_all[A](v: A, xs: LList[A], /) -&gt; LList[A]
+def llist_ref[A](xs: LList[A], n: int, /) -&gt; A
+def draw_data[A](value1: A, /, *values: Any) -&gt; A</code></pre>
+<h3>pair mutators</h3>
+<pre><code>def set_head[H](p: Pair[H, Any], v: H, /) -&gt; None
+def set_tail[T](p: Pair[Any, T], v: T, /) -&gt; None</code></pre>
+<h3>streams</h3>
+<pre><code>def stream[A](*xs: A) -&gt; Stream[A]
+def is_stream(x: object, /) -&gt; bool
+def stream_tail[H, T](s: Pair[H, Callable[[], T]], /) -&gt; T
+def stream_ref[A](s: Stream[A], n: int, /) -&gt; A
+def stream_length(s: Stream[Any], /) -&gt; int
+def stream_map[A, B](f: Callable[[A], B], s: Stream[A], /) -&gt; Stream[B]
+def stream_filter[A](pred: Callable[[A], bool], s: Stream[A], /) -&gt; Stream[A]
+def stream_for_each[A](f: Callable[[A], object], s: Stream[A], /) -&gt; bool
+def stream_reverse[A](s: Stream[A], /) -&gt; Stream[A]
+def stream_append[A](s: Stream[A], t: Stream[A], /) -&gt; Stream[A]
+def stream_member[A](v: A, s: Stream[A], /) -&gt; Stream[A]
+def stream_remove[A](v: A, s: Stream[A], /) -&gt; Stream[A]
+def stream_remove_all[A](v: A, s: Stream[A], /) -&gt; Stream[A]
+def build_stream[A](f: Callable[[int], A], n: int, /) -&gt; Stream[A]
+def enum_stream(start: int, end: int, /) -&gt; Stream[int]
+def integers_from(start: int, /) -&gt; Stream[int]
+def llist_to_stream[A](xs: LList[A], /) -&gt; Stream[A]
+def stream_to_llist[A](s: Stream[A], /) -&gt; LList[A]
+def eval_stream[A](s: Stream[A], n: int, /) -&gt; LList[A]</code></pre>
+<h3>math</h3>
+<pre><code>math_e: float
+math_inf: float
+math_nan: float
+math_pi: float
+math_tau: float
+def math_acos(x: int | float, /) -&gt; float
+def math_acosh(x: int | float, /) -&gt; float
+def math_asin(x: int | float, /) -&gt; float
+def math_asinh(x: int | float, /) -&gt; float
+def math_atan(x: int | float, /) -&gt; float
+def math_atan2(y: int | float, x: int | float, /) -&gt; float
+def math_atanh(x: int | float, /) -&gt; float
+def math_cbrt(x: int | float, /) -&gt; float
+def math_ceil(x: int | float, /) -&gt; int
+def math_comb(n: int, k: int, /) -&gt; int
+def math_copysign(x: int | float, y: int | float, /) -&gt; float
+def math_cos(x: int | float, /) -&gt; float
+def math_cosh(x: int | float, /) -&gt; float
+def math_degrees(x: int | float, /) -&gt; float
+def math_erf(x: int | float, /) -&gt; float
+def math_erfc(x: int | float, /) -&gt; float
+def math_exp(x: int | float, /) -&gt; float
+def math_exp2(x: int | float, /) -&gt; float
+def math_expm1(x: int | float, /) -&gt; float
+def math_fabs(x: int | float, /) -&gt; float
+def math_factorial(n: int, /) -&gt; int
+def math_floor(x: int | float, /) -&gt; int
+def math_fma(x: int | float, y: int | float, z: int | float, /) -&gt; float
+def math_fmod(x: int | float, y: int | float, /) -&gt; float
+def math_gamma(x: int | float, /) -&gt; float
+def math_gcd(*integers: int) -&gt; int
+def math_isfinite(x: int | float, /) -&gt; bool
+def math_isinf(x: int | float, /) -&gt; bool
+def math_isnan(x: int | float, /) -&gt; bool
+def math_isqrt(n: int, /) -&gt; int
+def math_lcm(*integers: int) -&gt; int
+def math_ldexp(x: int | float, i: int, /) -&gt; float
+def math_lgamma(x: int | float, /) -&gt; float
+def math_log(x: int | float, base: int | float = ..., /) -&gt; float
+def math_log10(x: int | float, /) -&gt; float
+def math_log1p(x: int | float, /) -&gt; float
+def math_log2(x: int | float, /) -&gt; float
+def math_nextafter(x: int | float, y: int | float, /) -&gt; float
+def math_perm(n: int, k: int = ..., /) -&gt; int
+def math_pow(x: int | float, y: int | float, /) -&gt; float
+def math_radians(x: int | float, /) -&gt; float
+def math_remainder(x: int | float, y: int | float, /) -&gt; float
+def math_sin(x: int | float, /) -&gt; float
+def math_sinh(x: int | float, /) -&gt; float
+def math_sqrt(x: int | float, /) -&gt; float
+def math_tan(x: int | float, /) -&gt; float
+def math_tanh(x: int | float, /) -&gt; float
+def math_trunc(x: int | float, /) -&gt; int
+def math_ulp(x: int | float, /) -&gt; float</code></pre>
+<h2>You want the definitive specs?</h2>
+<p>For our development team, we are maintaining a definitive description
+of the language, called the
+<a href="../python_4_typed.pdf">Specification of Python §4 Typed</a>. Feel free to
+take a peek!</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h3>Predeclared names</h3><ul><li><a href="global.html#abs">abs</a></li><li><a href="global.html#append">append</a></li><li><a href="global.html#apply_in_underlying_python">apply_in_underlying_python</a></li><li><a href="global.html#arity">arity</a></li><li><a href="global.html#breakpoint">breakpoint</a></li><li><a href="global.html#build_llist">build_llist</a></li><li><a href="global.html#build_stream">build_stream</a></li><li><a href="global.html#clear_all_timeout">clear_all_timeout</a></li><li><a href="global.html#complex">complex</a></li><li><a href="global.html#draw_data">draw_data</a></li><li><a href="global.html#enum_llist">enum_llist</a></li><li><a href="global.html#enum_stream">enum_stream</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#eval_stream">eval_stream</a></li><li><a href="global.html#filter">filter</a></li><li><a href="global.html#for_each">for_each</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#imag">imag</a></li><li><a href="global.html#input">input</a></li><li><a href="global.html#integers_from">integers_from</a></li><li><a href="global.html#is_boolean">is_boolean</a></li><li><a href="global.html#is_complex">is_complex</a></li><li><a href="global.html#is_float">is_float</a></li><li><a href="global.html#is_function">is_function</a></li><li><a href="global.html#is_integer">is_integer</a></li><li><a href="global.html#is_list">is_list</a></li><li><a href="global.html#is_llist">is_llist</a></li><li><a href="global.html#is_none">is_none</a></li><li><a href="global.html#is_number">is_number</a></li><li><a href="global.html#is_pair">is_pair</a></li><li><a href="global.html#is_stream">is_stream</a></li><li><a href="global.html#is_string">is_string</a></li><li><a href="global.html#len">len</a></li><li><a href="global.html#length">length</a></li><li><a href="global.html#llist">llist</a></li><li><a href="global.html#llist_ref">llist_ref</a></li><li><a href="global.html#llist_to_stream">llist_to_stream</a></li><li><a href="global.html#llist_to_string">llist_to_string</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#math_acos">math_acos</a></li><li><a href="global.html#math_acosh">math_acosh</a></li><li><a href="global.html#math_asin">math_asin</a></li><li><a href="global.html#math_asinh">math_asinh</a></li><li><a href="global.html#math_atan">math_atan</a></li><li><a href="global.html#math_atan2">math_atan2</a></li><li><a href="global.html#math_atanh">math_atanh</a></li><li><a href="global.html#math_cbrt">math_cbrt</a></li><li><a href="global.html#math_ceil">math_ceil</a></li><li><a href="global.html#math_comb">math_comb</a></li><li><a href="global.html#math_copysign">math_copysign</a></li><li><a href="global.html#math_cos">math_cos</a></li><li><a href="global.html#math_cosh">math_cosh</a></li><li><a href="global.html#math_degrees">math_degrees</a></li><li><a href="global.html#math_e">math_e</a></li><li><a href="global.html#math_erf">math_erf</a></li><li><a href="global.html#math_erfc">math_erfc</a></li><li><a href="global.html#math_exp">math_exp</a></li><li><a href="global.html#math_exp2">math_exp2</a></li><li><a href="global.html#math_expm1">math_expm1</a></li><li><a href="global.html#math_fabs">math_fabs</a></li><li><a href="global.html#math_factorial">math_factorial</a></li><li><a href="global.html#math_floor">math_floor</a></li><li><a href="global.html#math_fma">math_fma</a></li><li><a href="global.html#math_fmod">math_fmod</a></li><li><a href="global.html#math_gamma">math_gamma</a></li><li><a href="global.html#math_gcd">math_gcd</a></li><li><a href="global.html#math_inf">math_inf</a></li><li><a href="global.html#math_isfinite">math_isfinite</a></li><li><a href="global.html#math_isinf">math_isinf</a></li><li><a href="global.html#math_isnan">math_isnan</a></li><li><a href="global.html#math_isqrt">math_isqrt</a></li><li><a href="global.html#math_lcm">math_lcm</a></li><li><a href="global.html#math_ldexp">math_ldexp</a></li><li><a href="global.html#math_lgamma">math_lgamma</a></li><li><a href="global.html#math_log">math_log</a></li><li><a href="global.html#math_log10">math_log10</a></li><li><a href="global.html#math_log1p">math_log1p</a></li><li><a href="global.html#math_log2">math_log2</a></li><li><a href="global.html#math_nan">math_nan</a></li><li><a href="global.html#math_nextafter">math_nextafter</a></li><li><a href="global.html#math_perm">math_perm</a></li><li><a href="global.html#math_pi">math_pi</a></li><li><a href="global.html#math_pow">math_pow</a></li><li><a href="global.html#math_radians">math_radians</a></li><li><a href="global.html#math_remainder">math_remainder</a></li><li><a href="global.html#math_sin">math_sin</a></li><li><a href="global.html#math_sinh">math_sinh</a></li><li><a href="global.html#math_sqrt">math_sqrt</a></li><li><a href="global.html#math_tan">math_tan</a></li><li><a href="global.html#math_tanh">math_tanh</a></li><li><a href="global.html#math_tau">math_tau</a></li><li><a href="global.html#math_trunc">math_trunc</a></li><li><a href="global.html#math_ulp">math_ulp</a></li><li><a href="global.html#max">max</a></li><li><a href="global.html#member">member</a></li><li><a href="global.html#min">min</a></li><li><a href="global.html#pair">pair</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#print_llist">print_llist</a></li><li><a href="global.html#random_random">random_random</a></li><li><a href="global.html#real">real</a></li><li><a href="global.html#reduce">reduce</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#remove_all">remove_all</a></li><li><a href="global.html#repr">repr</a></li><li><a href="global.html#reverse">reverse</a></li><li><a href="global.html#round">round</a></li><li><a href="global.html#set_head">set_head</a></li><li><a href="global.html#set_tail">set_tail</a></li><li><a href="global.html#set_timeout">set_timeout</a></li><li><a href="global.html#str">str</a></li><li><a href="global.html#stream">stream</a></li><li><a href="global.html#stream_append">stream_append</a></li><li><a href="global.html#stream_filter">stream_filter</a></li><li><a href="global.html#stream_for_each">stream_for_each</a></li><li><a href="global.html#stream_length">stream_length</a></li><li><a href="global.html#stream_map">stream_map</a></li><li><a href="global.html#stream_member">stream_member</a></li><li><a href="global.html#stream_ref">stream_ref</a></li><li><a href="global.html#stream_remove">stream_remove</a></li><li><a href="global.html#stream_remove_all">stream_remove_all</a></li><li><a href="global.html#stream_reverse">stream_reverse</a></li><li><a href="global.html#stream_tail">stream_tail</a></li><li><a href="global.html#stream_to_llist">stream_to_llist</a></li><li><a href="global.html#tail">tail</a></li><li><a href="global.html#time_time">time_time</a></li><li><a href="global.html#tokenize">tokenize</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+  generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> from
+  <a href="https://github.com/source-academy/py-slang">Github repository py-slang</a>
+  on Mon Nov 09 2026 05:22:36 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
