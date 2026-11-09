@@ -218,12 +218,12 @@ number that you give to a module, and <code>float</code> for a number that it gi
 <li><code>BinaryTree[A]</code>: a binary tree whose entries have type A, made with make_tree and make_empty_tree</li>
 </ul>
 <pre><code>def make_empty_tree[A]() -&gt; BinaryTree[A]
-def make_tree[A](value: A, left: BinaryTree[A], right: BinaryTree[A], /) -&gt; BinaryTree[A]
-def is_tree(value: object, /) -&gt; bool
-def is_empty_tree(value: object, /) -&gt; bool
-def entry[A](t: BinaryTree[A], /) -&gt; A
-def left_branch[A](t: BinaryTree[A], /) -&gt; BinaryTree[A]
-def right_branch[A](t: BinaryTree[A], /) -&gt; BinaryTree[A]</code></pre>
+def make_tree[A](value: A, left: BinaryTree[A], right: BinaryTree[A]) -&gt; BinaryTree[A]
+def is_tree(value: object) -&gt; bool
+def is_empty_tree(value: object) -&gt; bool
+def entry[A](t: BinaryTree[A]) -&gt; A
+def left_branch[A](t: BinaryTree[A]) -&gt; BinaryTree[A]
+def right_branch[A](t: BinaryTree[A]) -&gt; BinaryTree[A]</code></pre>
 <h3>curve</h3>
 <p>A curve is a function from a number between 0 and 1 to a Point: Callable[[float], Point]. A transformation of curves is a function from a curve to a curve. The 2D drawers (draw_connected, ...) and the 3D drawers (draw_3D_connected, ...) are different types: animate_curve takes a 2D drawer and animate_3D_curve a 3D drawer.</p>
 <p>Types:</p>
@@ -233,98 +233,98 @@ def right_branch[A](t: BinaryTree[A], /) -&gt; BinaryTree[A]</code></pre>
 <li><code>Curve3DDrawn</code>: a curve that was drawn with a 3D drawer</li>
 <li><code>CurveAnimation</code>: an animation of curves</li>
 </ul>
-<pre><code>def make_point(x: int | float, y: int | float, /) -&gt; Point
-def make_3D_point(x: int | float, y: int | float, z: int | float, /) -&gt; Point
-def make_color_point(x: int | float, y: int | float, r: int | float, g: int | float, b: int | float, /) -&gt; Point
-def make_3D_color_point(x: int | float, y: int | float, z: int | float, r: int | float, g: int | float, b: int | float, /) -&gt; Point
-def x_of(pt: Point, /) -&gt; float
-def y_of(pt: Point, /) -&gt; float
-def z_of(pt: Point, /) -&gt; float
-def r_of(pt: Point, /) -&gt; float
-def g_of(pt: Point, /) -&gt; float
-def b_of(pt: Point, /) -&gt; float
-def unit_circle(t: int | float, /) -&gt; Point
-def unit_line(t: int | float, /) -&gt; Point
-def arc(t: int | float, /) -&gt; Point
-def unit_line_at(y: int | float, /) -&gt; Callable[[int | float], Point]
-def connect_ends(curve1: Callable[[float], Point], curve2: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
-def connect_rigidly(curve1: Callable[[float], Point], curve2: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
-def invert(original: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
-def put_in_standard_position(curve: Callable[[float], Point], /) -&gt; Callable[[int | float], Point]
-def translate(x0: int | float, y0: int | float, z0: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
-def rainbow(repeats: int | float, phase: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
-def rotate_around_origin(a: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
-def rotate_around_origin_3D(a: int | float, b: int | float, c: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
-def scale(x: int | float, y: int | float, z: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
-def scale_proportional(s: int | float, /) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
-def draw_connected(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
-def draw_connected_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
-def draw_connected_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
-def draw_points(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
-def draw_points_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
-def draw_points_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
-def draw_3D_connected(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
-def draw_3D_connected_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
-def draw_3D_connected_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
-def draw_3D_points(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
-def draw_3D_points_full_view(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
-def draw_3D_points_full_view_proportional(num_points: int, /) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
-def animate_curve(duration: int | float, fps: int | float, drawer: Callable[[Callable[[int | float], Point]], CurveDrawn], func: Callable[[float], Callable[[float], Point]], /) -&gt; CurveAnimation
-def animate_3D_curve(duration: int | float, fps: int | float, drawer: Callable[[Callable[[int | float], Point]], Curve3DDrawn], func: Callable[[float], Callable[[float], Point]], /) -&gt; CurveAnimation</code></pre>
+<pre><code>def make_point(x: int | float, y: int | float) -&gt; Point
+def make_3D_point(x: int | float, y: int | float, z: int | float) -&gt; Point
+def make_color_point(x: int | float, y: int | float, r: int | float, g: int | float, b: int | float) -&gt; Point
+def make_3D_color_point(x: int | float, y: int | float, z: int | float, r: int | float, g: int | float, b: int | float) -&gt; Point
+def x_of(pt: Point) -&gt; float
+def y_of(pt: Point) -&gt; float
+def z_of(pt: Point) -&gt; float
+def r_of(pt: Point) -&gt; float
+def g_of(pt: Point) -&gt; float
+def b_of(pt: Point) -&gt; float
+def unit_circle(t: int | float) -&gt; Point
+def unit_line(t: int | float) -&gt; Point
+def arc(t: int | float) -&gt; Point
+def unit_line_at(y: int | float) -&gt; Callable[[int | float], Point]
+def connect_ends(curve1: Callable[[float], Point], curve2: Callable[[float], Point]) -&gt; Callable[[int | float], Point]
+def connect_rigidly(curve1: Callable[[float], Point], curve2: Callable[[float], Point]) -&gt; Callable[[int | float], Point]
+def invert(original: Callable[[float], Point]) -&gt; Callable[[int | float], Point]
+def put_in_standard_position(curve: Callable[[float], Point]) -&gt; Callable[[int | float], Point]
+def translate(x0: int | float, y0: int | float, z0: int | float) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def rainbow(repeats: int | float, phase: int | float) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def rotate_around_origin(a: int | float) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def rotate_around_origin_3D(a: int | float, b: int | float, c: int | float) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def scale(x: int | float, y: int | float, z: int | float) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def scale_proportional(s: int | float) -&gt; Callable[[Callable[[float], Point]], Callable[[int | float], Point]]
+def draw_connected(num_points: int) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_connected_full_view(num_points: int) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_connected_full_view_proportional(num_points: int) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_points(num_points: int) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_points_full_view(num_points: int) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_points_full_view_proportional(num_points: int) -&gt; Callable[[Callable[[float], Point]], CurveDrawn]
+def draw_3D_connected(num_points: int) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_connected_full_view(num_points: int) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_connected_full_view_proportional(num_points: int) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_points(num_points: int) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_points_full_view(num_points: int) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def draw_3D_points_full_view_proportional(num_points: int) -&gt; Callable[[Callable[[float], Point]], Curve3DDrawn]
+def animate_curve(duration: int | float, fps: int | float, drawer: Callable[[Callable[[int | float], Point]], CurveDrawn], func: Callable[[float], Callable[[float], Point]]) -&gt; CurveAnimation
+def animate_3D_curve(duration: int | float, fps: int | float, drawer: Callable[[Callable[[int | float], Point]], Curve3DDrawn], func: Callable[[float], Callable[[float], Point]]) -&gt; CurveAnimation</code></pre>
 <h3>matrix</h3>
 <p>get_matrix gives the rows of the tone matrix as a linked list, the bottom row first; each row is a linked list of booleans.</p>
 <pre><code>def get_matrix() -&gt; LList[LList[bool]]
 def clear_matrix() -&gt; None</code></pre>
 <h3>repeat</h3>
 <p>The function that is repeated has the same type for its parameter and its result. The count n must be a whole number.</p>
-<pre><code>def repeat[A](func: Callable[[A], A], n: int, /) -&gt; Callable[[A], A]
-def repeat_apply[A](func: Callable[[A], A], n: int, x: A, /) -&gt; A
-def twice[A](func: Callable[[A], A], /) -&gt; Callable[[A], A]
-def thrice[A](func: Callable[[A], A], /) -&gt; Callable[[A], A]</code></pre>
+<pre><code>def repeat[A](func: Callable[[A], A], n: int) -&gt; Callable[[A], A]
+def repeat_apply[A](func: Callable[[A], A], n: int, x: A) -&gt; A
+def twice[A](func: Callable[[A], A]) -&gt; Callable[[A], A]
+def thrice[A](func: Callable[[A], A]) -&gt; Callable[[A], A]</code></pre>
 <h3>rune</h3>
 <p>Types:</p>
 <ul>
 <li><code>Rune</code>: a picture that you can combine and transform</li>
 <li><code>AnimatedRune</code>: an animation of runes, which animate_rune and animate_anaglyph give (no function of rune takes one)</li>
 </ul>
-<pre><code>def anaglyph(rune: Rune, /) -&gt; Rune
-def animate_anaglyph(duration: int | float, fps: int | float, func: Callable[[float], Rune], /) -&gt; AnimatedRune
-def animate_rune(duration: int | float, fps: int | float, func: Callable[[float], Rune], /) -&gt; AnimatedRune
-def beside(rune1: Rune, rune2: Rune, /) -&gt; Rune
-def beside_frac(frac: int | float, rune1: Rune, rune2: Rune, /) -&gt; Rune
-def black(rune: Rune, /) -&gt; Rune
-def blue(rune: Rune, /) -&gt; Rune
-def brown(rune: Rune, /) -&gt; Rune
-def color(rune: Rune, r: int | float, g: int | float, b: int | float, /) -&gt; Rune
-def colour_with_hue(rune: Rune, hue: int | float, /) -&gt; Rune
-def flip_horiz(rune: Rune, /) -&gt; Rune
-def flip_vert(rune: Rune, /) -&gt; Rune
-def from_url(imageUrl: str, /) -&gt; Rune
-def green(rune: Rune, /) -&gt; Rune
-def hollusion(rune: Rune, /) -&gt; Rune
-def hollusion_magnitude(rune: Rune, magnitude: int | float, /) -&gt; Rune
-def indigo(rune: Rune, /) -&gt; Rune
-def make_cross(rune: Rune, /) -&gt; Rune
-def orange(rune: Rune, /) -&gt; Rune
-def overlay(rune1: Rune, rune2: Rune, /) -&gt; Rune
-def overlay_frac(frac: int | float, rune1: Rune, rune2: Rune, /) -&gt; Rune
-def pink(rune: Rune, /) -&gt; Rune
-def purple(rune: Rune, /) -&gt; Rune
-def quarter_turn_left(rune: Rune, /) -&gt; Rune
-def quarter_turn_right(rune: Rune, /) -&gt; Rune
-def random_color(rune: Rune, /) -&gt; Rune
-def red(rune: Rune, /) -&gt; Rune
-def rotate(rad: int | float, rune: Rune, /) -&gt; Rune
-def scale(ratio: int | float, rune: Rune, /) -&gt; Rune
-def scale_independent(ratio_x: int | float, ratio_y: int | float, rune: Rune, /) -&gt; Rune
-def show(rune: Rune, /) -&gt; Rune
-def stack(rune1: Rune, rune2: Rune, /) -&gt; Rune
-def stack_frac(frac: int | float, rune1: Rune, rune2: Rune, /) -&gt; Rune
-def stackn(n: int, rune: Rune, /) -&gt; Rune
-def translate(x: int | float, y: int | float, rune: Rune, /) -&gt; Rune
-def turn_upside_down(rune: Rune, /) -&gt; Rune
-def white(rune: Rune, /) -&gt; Rune
-def yellow(rune: Rune, /) -&gt; Rune
+<pre><code>def anaglyph(rune: Rune) -&gt; Rune
+def animate_anaglyph(duration: int | float, fps: int | float, func: Callable[[float], Rune]) -&gt; AnimatedRune
+def animate_rune(duration: int | float, fps: int | float, func: Callable[[float], Rune]) -&gt; AnimatedRune
+def beside(rune1: Rune, rune2: Rune) -&gt; Rune
+def beside_frac(frac: int | float, rune1: Rune, rune2: Rune) -&gt; Rune
+def black(rune: Rune) -&gt; Rune
+def blue(rune: Rune) -&gt; Rune
+def brown(rune: Rune) -&gt; Rune
+def color(rune: Rune, r: int | float, g: int | float, b: int | float) -&gt; Rune
+def colour_with_hue(rune: Rune, hue: int | float) -&gt; Rune
+def flip_horiz(rune: Rune) -&gt; Rune
+def flip_vert(rune: Rune) -&gt; Rune
+def from_url(imageUrl: str) -&gt; Rune
+def green(rune: Rune) -&gt; Rune
+def hollusion(rune: Rune) -&gt; Rune
+def hollusion_magnitude(rune: Rune, magnitude: int | float) -&gt; Rune
+def indigo(rune: Rune) -&gt; Rune
+def make_cross(rune: Rune) -&gt; Rune
+def orange(rune: Rune) -&gt; Rune
+def overlay(rune1: Rune, rune2: Rune) -&gt; Rune
+def overlay_frac(frac: int | float, rune1: Rune, rune2: Rune) -&gt; Rune
+def pink(rune: Rune) -&gt; Rune
+def purple(rune: Rune) -&gt; Rune
+def quarter_turn_left(rune: Rune) -&gt; Rune
+def quarter_turn_right(rune: Rune) -&gt; Rune
+def random_color(rune: Rune) -&gt; Rune
+def red(rune: Rune) -&gt; Rune
+def rotate(rad: int | float, rune: Rune) -&gt; Rune
+def scale(ratio: int | float, rune: Rune) -&gt; Rune
+def scale_independent(ratio_x: int | float, ratio_y: int | float, rune: Rune) -&gt; Rune
+def show(rune: Rune) -&gt; Rune
+def stack(rune1: Rune, rune2: Rune) -&gt; Rune
+def stack_frac(frac: int | float, rune1: Rune, rune2: Rune) -&gt; Rune
+def stackn(n: int, rune: Rune) -&gt; Rune
+def translate(x: int | float, y: int | float, rune: Rune) -&gt; Rune
+def turn_upside_down(rune: Rune) -&gt; Rune
+def white(rune: Rune) -&gt; Rune
+def yellow(rune: Rune) -&gt; Rune
 blank: Rune
 circle: Rune
 corner: Rune
@@ -348,171 +348,170 @@ scrabble_letters_tiny: list[list[str]]</code></pre>
 <ul>
 <li><code>Sound</code>: a sound, which you can play and combine; make_sound makes one from a wave and a duration, and get_wave and get_duration take it apart</li>
 </ul>
-<pre><code>def make_sound(wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
-def make_stereo_sound(left_wave: Callable[[float], int | float], right_wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
-def get_wave(sound: Sound, /) -&gt; Callable[[int | float], float]
-def get_left_wave(sound: Sound, /) -&gt; Callable[[int | float], float]
-def get_right_wave(sound: Sound, /) -&gt; Callable[[int | float], float]
-def get_duration(sound: Sound, /) -&gt; float
-def is_sound(x: object, /) -&gt; bool
+<pre><code>def make_sound(wave: Callable[[float], int | float], duration: int | float) -&gt; Sound
+def make_stereo_sound(left_wave: Callable[[float], int | float], right_wave: Callable[[float], int | float], duration: int | float) -&gt; Sound
+def get_wave(sound: Sound) -&gt; Callable[[int | float], float]
+def get_left_wave(sound: Sound) -&gt; Callable[[int | float], float]
+def get_right_wave(sound: Sound) -&gt; Callable[[int | float], float]
+def get_duration(sound: Sound) -&gt; float
+def is_sound(x: object) -&gt; bool
 def init_record() -&gt; str
-def record(buffer: int | float, /) -&gt; Callable[[], Callable[[], Sound]]
-def record_for(duration: int | float, buffer: int | float, /) -&gt; Callable[[], Sound]
-def play_wave(wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
-def play_waves(left_wave: Callable[[float], int | float], right_wave: Callable[[float], int | float], duration: int | float, /) -&gt; Sound
-def play(sound: Sound, /) -&gt; Sound
-def play_in_tab(sound: Sound, /) -&gt; Sound
+def record(buffer: int | float) -&gt; Callable[[], Callable[[], Sound]]
+def record_for(duration: int | float, buffer: int | float) -&gt; Callable[[], Sound]
+def play_wave(wave: Callable[[float], int | float], duration: int | float) -&gt; Sound
+def play_waves(left_wave: Callable[[float], int | float], right_wave: Callable[[float], int | float], duration: int | float) -&gt; Sound
+def play(sound: Sound) -&gt; Sound
+def play_in_tab(sound: Sound) -&gt; Sound
 def stop() -&gt; None
 def noise_wave() -&gt; Callable[[int | float], float]
 def silence_wave() -&gt; Callable[[int | float], float]
-def sine_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
-def square_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
-def triangle_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
-def sawtooth_wave(freq: int | float, /) -&gt; Callable[[int | float], float]
-def noise_sound(duration: int | float, /) -&gt; Sound
-def silence_sound(duration: int | float, /) -&gt; Sound
-def sine_sound(freq: int | float, duration: int | float, /) -&gt; Sound
-def square_sound(freq: int | float, duration: int | float, /) -&gt; Sound
-def triangle_sound(freq: int | float, duration: int | float, /) -&gt; Sound
-def sawtooth_sound(freq: int | float, duration: int | float, /) -&gt; Sound
-def consecutively(sounds: LList[Sound], /) -&gt; Sound
-def simultaneously(sounds: LList[Sound], /) -&gt; Sound
-def adsr(attack_ratio: int | float, decay_ratio: int | float, sustain_level: int | float, release_ratio: int | float, /) -&gt; Callable[[Sound], Sound]
-def stacking_adsr(waveform: Callable[[float, float], Sound], base_frequency: int | float, duration: int | float, envelopes: LList[Callable[[Sound], Sound]], /) -&gt; Sound
-def phase_mod(freq: int | float, duration: int | float, amount: int | float, /) -&gt; Callable[[Sound], Sound]
-def squash(sound: Sound, /) -&gt; Sound
-def pan(amount: int | float, /) -&gt; Callable[[Sound], Sound]
-def pan_mod(modulator: Sound, /) -&gt; Callable[[Sound], Sound]
-def bell(note: int | float, duration: int | float, /) -&gt; Sound
-def cello(note: int | float, duration: int | float, /) -&gt; Sound
-def piano(note: int | float, duration: int | float, /) -&gt; Sound
-def trombone(note: int | float, duration: int | float, /) -&gt; Sound
-def violin(note: int | float, duration: int | float, /) -&gt; Sound</code></pre>
+def sine_wave(freq: int | float) -&gt; Callable[[int | float], float]
+def square_wave(freq: int | float) -&gt; Callable[[int | float], float]
+def triangle_wave(freq: int | float) -&gt; Callable[[int | float], float]
+def sawtooth_wave(freq: int | float) -&gt; Callable[[int | float], float]
+def noise_sound(duration: int | float) -&gt; Sound
+def silence_sound(duration: int | float) -&gt; Sound
+def sine_sound(freq: int | float, duration: int | float) -&gt; Sound
+def square_sound(freq: int | float, duration: int | float) -&gt; Sound
+def triangle_sound(freq: int | float, duration: int | float) -&gt; Sound
+def sawtooth_sound(freq: int | float, duration: int | float) -&gt; Sound
+def consecutively(sounds: LList[Sound]) -&gt; Sound
+def simultaneously(sounds: LList[Sound]) -&gt; Sound
+def adsr(attack_ratio: int | float, decay_ratio: int | float, sustain_level: int | float, release_ratio: int | float) -&gt; Callable[[Sound], Sound]
+def stacking_adsr(waveform: Callable[[float, float], Sound], base_frequency: int | float, duration: int | float, envelopes: LList[Callable[[Sound], Sound]]) -&gt; Sound
+def phase_mod(freq: int | float, duration: int | float, amount: int | float) -&gt; Callable[[Sound], Sound]
+def squash(sound: Sound) -&gt; Sound
+def pan(amount: int | float) -&gt; Callable[[Sound], Sound]
+def pan_mod(modulator: Sound) -&gt; Callable[[Sound], Sound]
+def bell(note: int | float, duration: int | float) -&gt; Sound
+def cello(note: int | float, duration: int | float) -&gt; Sound
+def piano(note: int | float, duration: int | float) -&gt; Sound
+def trombone(note: int | float, duration: int | float) -&gt; Sound
+def violin(note: int | float, duration: int | float) -&gt; Sound</code></pre>
 <h2>Types of the predeclared names</h2>
 <p><code>Any</code> in a declaration means that any type is accepted there (you cannot write <code>Any</code> in a program),
-<code>TypeIs[T]</code> means <code>bool</code>, and in addition narrows the type of the argument to <code>T</code>, <code>NoReturn</code> is the result
-of a function that never returns (<code>error</code>; you cannot write it in a program either), and the <code>/</code> means
-that the arguments are passed by position.</p>
+<code>TypeIs[T]</code> means <code>bool</code>, and in addition narrows the type of the argument to <code>T</code>, and <code>NoReturn</code> is the result
+of a function that never returns (<code>error</code>; you cannot write it in a program either).</p>
 <h3>misc</h3>
 <pre><code>def error(*object: Any) -&gt; NoReturn
 def breakpoint() -&gt; None
 def time_time() -&gt; float
 def random_random() -&gt; float
-def arity(f: Callable[..., Any], /) -&gt; int
-def real(x: complex, /) -&gt; float
-def imag(x: complex, /) -&gt; float
-def set_timeout(f: Callable[[], object], t: int | float, /) -&gt; None
+def arity(f: Callable[..., Any]) -&gt; int
+def real(x: complex) -&gt; float
+def imag(x: complex) -&gt; float
+def set_timeout(f: Callable[[], object], t: int | float) -&gt; None
 def clear_all_timeout() -&gt; None
-def is_none(x: object, /) -&gt; TypeIs[None]
-def is_boolean(x: object, /) -&gt; TypeIs[bool]
-def is_integer(x: object, /) -&gt; TypeIs[int]
-def is_float(x: object, /) -&gt; TypeIs[float]
-def is_complex(x: object, /) -&gt; TypeIs[complex]
-def is_number(x: object, /) -&gt; TypeIs[int | float | complex]
-def is_string(x: object, /) -&gt; TypeIs[str]
-def is_function(x: object, /) -&gt; TypeIs[Callable[..., Any]]
-def is_list(x: object, /) -&gt; TypeIs[list[Any]]</code></pre>
+def is_none(x: object) -&gt; TypeIs[None]
+def is_boolean(x: object) -&gt; TypeIs[bool]
+def is_integer(x: object) -&gt; TypeIs[int]
+def is_float(x: object) -&gt; TypeIs[float]
+def is_complex(x: object) -&gt; TypeIs[complex]
+def is_number(x: object) -&gt; TypeIs[int | float | complex]
+def is_string(x: object) -&gt; TypeIs[str]
+def is_function(x: object) -&gt; TypeIs[Callable[..., Any]]
+def is_list(x: object) -&gt; TypeIs[list[Any]]</code></pre>
 <h3>pairs and linked lists</h3>
-<pre><code>def pair[H, T](h: H, t: T, /) -&gt; Pair[H, T]
-def head[H](p: Pair[H, Any], /) -&gt; H
-def tail[T](p: Pair[Any, T], /) -&gt; T
-def is_pair(x: object, /) -&gt; TypeIs[Pair[Any, Any]]
+<pre><code>def pair[H, T](h: H, t: T) -&gt; Pair[H, T]
+def head[H](p: Pair[H, Any]) -&gt; H
+def tail[T](p: Pair[Any, T]) -&gt; T
+def is_pair(x: object) -&gt; TypeIs[Pair[Any, Any]]
 def llist[A](*xs: A) -&gt; LList[A]
-def is_llist(x: object, /) -&gt; bool
-def print_llist(xs: LList[Any], /) -&gt; None
-def llist_to_string(xs: LList[Any], /) -&gt; str
-def length(xs: LList[Any], /) -&gt; int
-def map[A, B](f: Callable[[A], B], xs: LList[A], /) -&gt; LList[B]
-def filter[A](pred: Callable[[A], bool], xs: LList[A], /) -&gt; LList[A]
-def reduce[A, B](f: Callable[[A, B], B], initial: B, xs: LList[A], /) -&gt; B
-def for_each[A](f: Callable[[A], object], xs: LList[A], /) -&gt; bool
-def build_llist[A](f: Callable[[int], A], n: int, /) -&gt; LList[A]
-def enum_llist(start: int, end: int, /) -&gt; LList[int]
-def reverse[A](xs: LList[A], /) -&gt; LList[A]
-def append[A](xs: LList[A], ys: LList[A], /) -&gt; LList[A]
-def member[A](v: A, xs: LList[A], /) -&gt; LList[A]
-def remove[A](v: A, xs: LList[A], /) -&gt; LList[A]
-def remove_all[A](v: A, xs: LList[A], /) -&gt; LList[A]
-def llist_ref[A](xs: LList[A], n: int, /) -&gt; A
-def draw_data[A](value1: A, /, *values: Any) -&gt; A</code></pre>
+def is_llist(x: object) -&gt; bool
+def print_llist(xs: LList[Any]) -&gt; None
+def llist_to_string(xs: LList[Any]) -&gt; str
+def length(xs: LList[Any]) -&gt; int
+def map[A, B](f: Callable[[A], B], xs: LList[A]) -&gt; LList[B]
+def filter[A](pred: Callable[[A], bool], xs: LList[A]) -&gt; LList[A]
+def reduce[A, B](f: Callable[[A, B], B], initial: B, xs: LList[A]) -&gt; B
+def for_each[A](f: Callable[[A], object], xs: LList[A]) -&gt; bool
+def build_llist[A](f: Callable[[int], A], n: int) -&gt; LList[A]
+def enum_llist(start: int, end: int) -&gt; LList[int]
+def reverse[A](xs: LList[A]) -&gt; LList[A]
+def append[A](xs: LList[A], ys: LList[A]) -&gt; LList[A]
+def member[A](v: A, xs: LList[A]) -&gt; LList[A]
+def remove[A](v: A, xs: LList[A]) -&gt; LList[A]
+def remove_all[A](v: A, xs: LList[A]) -&gt; LList[A]
+def llist_ref[A](xs: LList[A], n: int) -&gt; A
+def draw_data[A](value1: A, *values: Any) -&gt; A</code></pre>
 <h3>pair mutators</h3>
-<pre><code>def set_head[H](p: Pair[H, Any], v: H, /) -&gt; None
-def set_tail[T](p: Pair[Any, T], v: T, /) -&gt; None</code></pre>
+<pre><code>def set_head[H](p: Pair[H, Any], v: H) -&gt; None
+def set_tail[T](p: Pair[Any, T], v: T) -&gt; None</code></pre>
 <h3>streams</h3>
 <pre><code>def stream[A](*xs: A) -&gt; Stream[A]
-def is_stream(x: object, /) -&gt; bool
-def stream_tail[H, T](s: Pair[H, Callable[[], T]], /) -&gt; T
-def stream_ref[A](s: Stream[A], n: int, /) -&gt; A
-def stream_length(s: Stream[Any], /) -&gt; int
-def stream_map[A, B](f: Callable[[A], B], s: Stream[A], /) -&gt; Stream[B]
-def stream_filter[A](pred: Callable[[A], bool], s: Stream[A], /) -&gt; Stream[A]
-def stream_for_each[A](f: Callable[[A], object], s: Stream[A], /) -&gt; bool
-def stream_reverse[A](s: Stream[A], /) -&gt; Stream[A]
-def stream_append[A](s: Stream[A], t: Stream[A], /) -&gt; Stream[A]
-def stream_member[A](v: A, s: Stream[A], /) -&gt; Stream[A]
-def stream_remove[A](v: A, s: Stream[A], /) -&gt; Stream[A]
-def stream_remove_all[A](v: A, s: Stream[A], /) -&gt; Stream[A]
-def build_stream[A](f: Callable[[int], A], n: int, /) -&gt; Stream[A]
-def enum_stream(start: int, end: int, /) -&gt; Stream[int]
-def integers_from(start: int, /) -&gt; Stream[int]
-def llist_to_stream[A](xs: LList[A], /) -&gt; Stream[A]
-def stream_to_llist[A](s: Stream[A], /) -&gt; LList[A]
-def eval_stream[A](s: Stream[A], n: int, /) -&gt; LList[A]</code></pre>
+def is_stream(x: object) -&gt; bool
+def stream_tail[H, T](s: Pair[H, Callable[[], T]]) -&gt; T
+def stream_ref[A](s: Stream[A], n: int) -&gt; A
+def stream_length(s: Stream[Any]) -&gt; int
+def stream_map[A, B](f: Callable[[A], B], s: Stream[A]) -&gt; Stream[B]
+def stream_filter[A](pred: Callable[[A], bool], s: Stream[A]) -&gt; Stream[A]
+def stream_for_each[A](f: Callable[[A], object], s: Stream[A]) -&gt; bool
+def stream_reverse[A](s: Stream[A]) -&gt; Stream[A]
+def stream_append[A](s: Stream[A], t: Stream[A]) -&gt; Stream[A]
+def stream_member[A](v: A, s: Stream[A]) -&gt; Stream[A]
+def stream_remove[A](v: A, s: Stream[A]) -&gt; Stream[A]
+def stream_remove_all[A](v: A, s: Stream[A]) -&gt; Stream[A]
+def build_stream[A](f: Callable[[int], A], n: int) -&gt; Stream[A]
+def enum_stream(start: int, end: int) -&gt; Stream[int]
+def integers_from(start: int) -&gt; Stream[int]
+def llist_to_stream[A](xs: LList[A]) -&gt; Stream[A]
+def stream_to_llist[A](s: Stream[A]) -&gt; LList[A]
+def eval_stream[A](s: Stream[A], n: int) -&gt; LList[A]</code></pre>
 <h3>math</h3>
 <pre><code>math_e: float
 math_inf: float
 math_nan: float
 math_pi: float
 math_tau: float
-def math_acos(x: int | float, /) -&gt; float
-def math_acosh(x: int | float, /) -&gt; float
-def math_asin(x: int | float, /) -&gt; float
-def math_asinh(x: int | float, /) -&gt; float
-def math_atan(x: int | float, /) -&gt; float
-def math_atan2(y: int | float, x: int | float, /) -&gt; float
-def math_atanh(x: int | float, /) -&gt; float
-def math_cbrt(x: int | float, /) -&gt; float
-def math_ceil(x: int | float, /) -&gt; int
-def math_comb(n: int, k: int, /) -&gt; int
-def math_copysign(x: int | float, y: int | float, /) -&gt; float
-def math_cos(x: int | float, /) -&gt; float
-def math_cosh(x: int | float, /) -&gt; float
-def math_degrees(x: int | float, /) -&gt; float
-def math_erf(x: int | float, /) -&gt; float
-def math_erfc(x: int | float, /) -&gt; float
-def math_exp(x: int | float, /) -&gt; float
-def math_exp2(x: int | float, /) -&gt; float
-def math_expm1(x: int | float, /) -&gt; float
-def math_fabs(x: int | float, /) -&gt; float
-def math_factorial(n: int, /) -&gt; int
-def math_floor(x: int | float, /) -&gt; int
-def math_fma(x: int | float, y: int | float, z: int | float, /) -&gt; float
-def math_fmod(x: int | float, y: int | float, /) -&gt; float
-def math_gamma(x: int | float, /) -&gt; float
+def math_acos(x: int | float) -&gt; float
+def math_acosh(x: int | float) -&gt; float
+def math_asin(x: int | float) -&gt; float
+def math_asinh(x: int | float) -&gt; float
+def math_atan(x: int | float) -&gt; float
+def math_atan2(y: int | float, x: int | float) -&gt; float
+def math_atanh(x: int | float) -&gt; float
+def math_cbrt(x: int | float) -&gt; float
+def math_ceil(x: int | float) -&gt; int
+def math_comb(n: int, k: int) -&gt; int
+def math_copysign(x: int | float, y: int | float) -&gt; float
+def math_cos(x: int | float) -&gt; float
+def math_cosh(x: int | float) -&gt; float
+def math_degrees(x: int | float) -&gt; float
+def math_erf(x: int | float) -&gt; float
+def math_erfc(x: int | float) -&gt; float
+def math_exp(x: int | float) -&gt; float
+def math_exp2(x: int | float) -&gt; float
+def math_expm1(x: int | float) -&gt; float
+def math_fabs(x: int | float) -&gt; float
+def math_factorial(n: int) -&gt; int
+def math_floor(x: int | float) -&gt; int
+def math_fma(x: int | float, y: int | float, z: int | float) -&gt; float
+def math_fmod(x: int | float, y: int | float) -&gt; float
+def math_gamma(x: int | float) -&gt; float
 def math_gcd(*integers: int) -&gt; int
-def math_isfinite(x: int | float, /) -&gt; bool
-def math_isinf(x: int | float, /) -&gt; bool
-def math_isnan(x: int | float, /) -&gt; bool
-def math_isqrt(n: int, /) -&gt; int
+def math_isfinite(x: int | float) -&gt; bool
+def math_isinf(x: int | float) -&gt; bool
+def math_isnan(x: int | float) -&gt; bool
+def math_isqrt(n: int) -&gt; int
 def math_lcm(*integers: int) -&gt; int
-def math_ldexp(x: int | float, i: int, /) -&gt; float
-def math_lgamma(x: int | float, /) -&gt; float
-def math_log(x: int | float, base: int | float = ..., /) -&gt; float
-def math_log10(x: int | float, /) -&gt; float
-def math_log1p(x: int | float, /) -&gt; float
-def math_log2(x: int | float, /) -&gt; float
-def math_nextafter(x: int | float, y: int | float, /) -&gt; float
-def math_perm(n: int, k: int = ..., /) -&gt; int
-def math_pow(x: int | float, y: int | float, /) -&gt; float
-def math_radians(x: int | float, /) -&gt; float
-def math_remainder(x: int | float, y: int | float, /) -&gt; float
-def math_sin(x: int | float, /) -&gt; float
-def math_sinh(x: int | float, /) -&gt; float
-def math_sqrt(x: int | float, /) -&gt; float
-def math_tan(x: int | float, /) -&gt; float
-def math_tanh(x: int | float, /) -&gt; float
-def math_trunc(x: int | float, /) -&gt; int
-def math_ulp(x: int | float, /) -&gt; float</code></pre>
+def math_ldexp(x: int | float, i: int) -&gt; float
+def math_lgamma(x: int | float) -&gt; float
+def math_log(x: int | float, base: int | float = ...) -&gt; float
+def math_log10(x: int | float) -&gt; float
+def math_log1p(x: int | float) -&gt; float
+def math_log2(x: int | float) -&gt; float
+def math_nextafter(x: int | float, y: int | float) -&gt; float
+def math_perm(n: int, k: int = ...) -&gt; int
+def math_pow(x: int | float, y: int | float) -&gt; float
+def math_radians(x: int | float) -&gt; float
+def math_remainder(x: int | float, y: int | float) -&gt; float
+def math_sin(x: int | float) -&gt; float
+def math_sinh(x: int | float) -&gt; float
+def math_sqrt(x: int | float) -&gt; float
+def math_tan(x: int | float) -&gt; float
+def math_tanh(x: int | float) -&gt; float
+def math_trunc(x: int | float) -&gt; int
+def math_ulp(x: int | float) -&gt; float</code></pre>
 <h2>You want the definitive specs?</h2>
 <p>For our development team, we are maintaining a definitive description
 of the language, called the
@@ -536,7 +535,7 @@ take a peek!</p></article>
 <footer>
   generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> from
   <a href="https://github.com/source-academy/py-slang">Github repository py-slang</a>
-  on Mon Nov 09 2026 05:24:14 GMT+0000 (Coordinated Universal Time)
+  on Mon Nov 09 2026 05:37:58 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
