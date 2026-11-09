@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Predeclared in MCE §typed</title>
+    <link rel="shortcut icon"
+	  type="image/x-icon"
+	  href="/images/sourcepower.ico" />
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Predeclared in <a href=".">MCE §typed</a></h1>
+
+    <!-- changed by MH on 1/7/2019 from default template. See "MH" below -->
+<!-- changed by MH on 3/6/2021 from default template. See "MH" below -->
+
+
+
+
+
+
+
+
+    <section>
+        <article>
+	<p>
+  	  Below you find all constants and functions used in the textbook
+	  <a href="https://sourceacademy.org/sicpy">Structure and Interpretation
+	  of Computer Programs, Python Adaptation</a> (SICPy).
+	  These constants and functions are predeclared in the language
+	  Python §4, a Python sublanguage implemented in the
+	  <a href="https://sourceacademy.org">Source Academy</a>.
+	</p>
+	<h2>Can I use these constants and functions without the Source Academy ?</h2>
+	<p>
+	  Yes, these constants and functions are provided by the
+	  PyPI package <a href="https://pypi.org/project/sourceacademy-sicp/">sourceacademy-sicp</a>. You can
+	  use this package to run the Python programs of SICPy in any system that implements Python. Follow the
+	  link for installation instructions. 
+	</p>
+	</article>
+   </section>
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Functions</h3>  <!-- changed by MH on 1/7/2019, was Methods -->
+
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="apply_in_underlying_python"><span class="type-signature"></span>apply_in_underlying_python<span class="signature">(f, xs)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <CODE>apply_in_underlying_python: its type is not fixed yet</CODE>
+
+calls the function <CODE>f</CODE>
+with arguments given in linked list <CODE>xs</CODE>. For example: <PRE><CODE>def times(x, y):
+    return x * y
+
+apply_in_underlying_python(times, llist(2, 3)); # returns 6</CODE></PRE>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            
+
+            
+
+            
+
+            <td class="description last">function to be applied</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>xs</code></td>
+            
+
+            
+
+            
+
+            
+
+            <td class="description last">arguments given in list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    whatever <CODE>f</CODE> returns
+</div>
+
+
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="parse"><span class="type-signature"></span>parse<span class="signature">(x)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <CODE>parse: its type is not fixed yet</CODE>
+
+returns the parse tree that results from parsing
+the string <CODE>str</CODE> as a Python program. The format
+of the parse tree is described in chapter 4 of
+the textbook
+in <a href="https://sourceacademy.org/sicpy/">Structure and
+Interpretation of Computer Programs, Python Adaptation</a> (SICPy).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            
+
+            
+
+            
+
+            <td class="description last">given program as a string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    parse tree
+</div>
+
+
+
+    
+
+
+
+
+
+            </div>
+        
+            <div class="function-entry">
+                
+
+    
+
+    
+    <h4 class="name" id="tokenize"><span class="type-signature"></span>tokenize<span class="signature">(s)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <CODE>tokenize: its type is not fixed yet</CODE>
+
+returns the list of tokens that results from lexing the string <CODE>s</CODE>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>s</code></td>
+            
+
+            
+
+            
+
+            
+
+            <td class="description last">given program as a string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    linked list of tokens
+</div>
+
+
+
+    
+
+
+
+
+
+            </div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h3>Predeclared names</h3><ul><li><a href="global.html#apply_in_underlying_python">apply_in_underlying_python</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#tokenize">tokenize</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+  generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> from
+  <a href="https://github.com/source-academy/py-slang">Github repository py-slang</a>
+  on Mon Nov 09 2026 05:48:26 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
