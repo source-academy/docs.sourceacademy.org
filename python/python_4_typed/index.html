@@ -162,6 +162,12 @@ an <code>int</code> is expected, as in Python §4, where <code>True + 1</code> i
 are concerned: <code>pair(1, 2)[0]</code> is a type error, and you access the head and tail of a pair with <code>head</code> and
 <code>tail</code>. There is no type that stands for every type (no <code>Any</code>), and types need no import: a program that
 imports from <code>typing</code> is rejected.</p>
+<p>One limit follows from the types of pairs and lists: <code>head</code>, <code>tail</code>, <code>set_head</code>, <code>set_tail</code>, <code>length</code>,
+<code>print_llist</code>, <code>llist_to_string</code> and <code>stream_length</code> need one head type, one tail type and one element type.
+A variable that holds a pair or list of one type in one branch and of another in the other branch
+(<code>xs = llist(1, 2) if c else llist(&quot;a&quot;)</code>, of type <code>LList[int] | LList[str]</code>) is therefore rejected by them:
+<code>length expects xs to be LList[A], but got LList[int] | LList[str]</code>. Declare the variable with one type
+instead, as in <code>xs: LList[int | str] = llist(1, 2) if c else llist(&quot;a&quot;)</code>.</p>
 <h2>Annotating your program</h2>
 <p>Every function definition annotates each of its parameters and its return type; a function that does not
 return a value has the return type <code>None</code>:</p>
@@ -190,7 +196,7 @@ type Rational = Pair[int, int]
 square(&quot;five&quot;)           # square expects x to be int, but got str
 head(pair(1, 2)[0])      # A pair cannot be indexed (Pair[int, int]): use head(...) and tail(...)
 if 1: pass               # A condition must be a bool, but this is an int
-head(llist(1, 2))        # head expects p to be Pair[H, Any], but got LList[int]. The value can be None:
+head(llist(1, 2))        # head expects p to be Pair[H, T], but got LList[int]. The value can be None:
                          # test for that first, for example with is_none(...)
 </code></pre>
 <h2>Can you use the Source Academy modules?</h2>
@@ -396,11 +402,11 @@ def violin(note: int | float, duration: int | float) -&gt; Sound</code></pre>
 <code>TypeIs[T]</code> means <code>bool</code>, and in addition narrows the type of the argument to <code>T</code>, and <code>NoReturn</code> is the result
 of a function that never returns (<code>error</code>; you cannot write it in a program either).</p>
 <h3>misc</h3>
-<pre><code>def error(*object: Any) -&gt; NoReturn
+<pre><code>def error(*object: object) -&gt; NoReturn
 def breakpoint() -&gt; None
 def time_time() -&gt; float
 def random_random() -&gt; float
-def arity(f: Callable[..., Any]) -&gt; int
+def arity(f: Callable[..., object]) -&gt; int
 def real(x: complex) -&gt; float
 def imag(x: complex) -&gt; float
 def set_timeout(f: Callable[[], object], t: int | float) -&gt; None
@@ -412,18 +418,18 @@ def is_float(x: object) -&gt; TypeIs[float]
 def is_complex(x: object) -&gt; TypeIs[complex]
 def is_number(x: object) -&gt; TypeIs[int | float | complex]
 def is_string(x: object) -&gt; TypeIs[str]
-def is_function(x: object) -&gt; TypeIs[Callable[..., Any]]
+def is_function(x: object) -&gt; TypeIs[Callable[..., object]]
 def is_list(x: object) -&gt; TypeIs[list[Any]]</code></pre>
 <h3>pairs and linked lists</h3>
 <pre><code>def pair[H, T](h: H, t: T) -&gt; Pair[H, T]
-def head[H](p: Pair[H, Any]) -&gt; H
-def tail[T](p: Pair[Any, T]) -&gt; T
+def head[H, T](p: Pair[H, T]) -&gt; H
+def tail[H, T](p: Pair[H, T]) -&gt; T
 def is_pair(x: object) -&gt; TypeIs[Pair[Any, Any]]
 def llist[A](*xs: A) -&gt; LList[A]
 def is_llist(x: object) -&gt; bool
-def print_llist(xs: LList[Any]) -&gt; None
-def llist_to_string(xs: LList[Any]) -&gt; str
-def length(xs: LList[Any]) -&gt; int
+def print_llist[A](xs: LList[A]) -&gt; None
+def llist_to_string[A](xs: LList[A]) -&gt; str
+def length[A](xs: LList[A]) -&gt; int
 def map[A, B](f: Callable[[A], B], xs: LList[A]) -&gt; LList[B]
 def filter[A](pred: Callable[[A], bool], xs: LList[A]) -&gt; LList[A]
 def reduce[A, B](f: Callable[[A, B], B], initial: B, xs: LList[A]) -&gt; B
@@ -436,16 +442,16 @@ def member[A](v: A, xs: LList[A]) -&gt; LList[A]
 def remove[A](v: A, xs: LList[A]) -&gt; LList[A]
 def remove_all[A](v: A, xs: LList[A]) -&gt; LList[A]
 def llist_ref[A](xs: LList[A], n: int) -&gt; A
-def draw_data[A](value1: A, *values: Any) -&gt; A</code></pre>
+def draw_data[A](value1: A, *values: object) -&gt; A</code></pre>
 <h3>pair mutators</h3>
-<pre><code>def set_head[H](p: Pair[H, Any], v: H) -&gt; None
-def set_tail[T](p: Pair[Any, T], v: T) -&gt; None</code></pre>
+<pre><code>def set_head[H, T](p: Pair[H, T], v: H) -&gt; None
+def set_tail[H, T](p: Pair[H, T], v: T) -&gt; None</code></pre>
 <h3>streams</h3>
 <pre><code>def stream[A](*xs: A) -&gt; Stream[A]
 def is_stream(x: object) -&gt; bool
 def stream_tail[H, T](s: Pair[H, Callable[[], T]]) -&gt; T
 def stream_ref[A](s: Stream[A], n: int) -&gt; A
-def stream_length(s: Stream[Any]) -&gt; int
+def stream_length[A](s: Stream[A]) -&gt; int
 def stream_map[A, B](f: Callable[[A], B], s: Stream[A]) -&gt; Stream[B]
 def stream_filter[A](pred: Callable[[A], bool], s: Stream[A]) -&gt; Stream[A]
 def stream_for_each[A](f: Callable[[A], object], s: Stream[A]) -&gt; bool
@@ -538,7 +544,7 @@ take a peek!</p></article>
 <footer>
   generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> from
   <a href="https://github.com/source-academy/py-slang">Github repository py-slang</a>
-  on Mon Nov 09 2026 05:48:26 GMT+0000 (Coordinated Universal Time)
+  on Mon Nov 09 2026 13:13:01 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
